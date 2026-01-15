@@ -1,14 +1,15 @@
-# Моят Блог
+## My blog
 
-Прост Django блог с:
+Simple Django poject with : 
 - Post, Category, Tag
-- Коментари с reply
+- Comments with reply
 - Login/Logout
-- Create, Update, Delete за постове
+- Create, Update, Delete for posts
 
-## Инструкции
+## Instructions
 
 1. `python manage.py migrate`
 2. `python manage.py createsuperuser`
 3. `python manage.py runserver`
-4. Достъп: http://127.0.0.1:8000/
+4. Localhost : http://127.0.0.1:8000/
+
