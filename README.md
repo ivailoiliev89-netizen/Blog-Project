@@ -1,4 +1,5 @@
 # Blog Project (Python)
+Link to project and instructions to setup : https://ivailoiliev89-netizen.github.io/Blog-Project/
 
 ## Description
 
@@ -44,4 +45,5 @@ It is created as a portfolio project to showcase Python development skills.
 
 Ivailo Iliev
 GitHub: https://github.com/ivailoiliev89-netizen
+
 
