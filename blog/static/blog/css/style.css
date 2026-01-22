@@ -1,0 +1,161 @@
+/* global styles */
+.site-body {
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-content {flex: 1;}
+
+/* the navbar */
+.custom-navbar {
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+}
+.navbar-brand {font-weight: 800;color: #2d3436 !important;}
+.user-welcome { font-size: 0.9rem; margin-right: 1rem; }
+
+/* all buttons */
+.btn-create { background-color: #00b894; color: white; border-radius: 50px; padding: 5px 15px; }
+.btn-exit { border-color: #ff7675; color: #ff7675; border-radius: 50px; }
+.btn-enter { background-color: #0984e3; color: white; border-radius: 50px; padding: 5px 25px; }
+
+/* top main page */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
+}
+.hero-title { font-weight: 800; font-size: 3rem; margin-bottom: 1rem; }
+.hero-subtitle { font-size: 1.25rem; opacity: 0.9; }
+
+/* cards for the posts */
+.post-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.post-card:hover { transform: translateY(-5px); }
+.post-card-img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+.no-image-placeholder {
+    height: 200px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #adb5bd;
+}
+.category-badge {
+    background: rgba(9, 132, 227, 0.1);
+    color: #0984e3;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-block;
+}
+.post-card-title { font-weight: 700; color: #2d3436; }
+.post-card-text { color: #636e72; font-size: 0.95rem; }
+
+/* meta data in cards */
+.post-card-meta {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.author-name { display: block; font-weight: 600; font-size: 0.85rem; }
+.post-date { font-size: 0.75rem; }
+.btn-more { color: #0984e3; text-decoration: none; font-weight: 700; }
+
+/* footer */
+.custom-footer {
+    background-color: #2d3436;
+    color: white;
+    padding: 60px 0 30px 0;
+    margin-top: 50px;
+}
+.footer-title { font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
+.footer-text { font-size: 0.9rem; color: #b2bec3; margin-bottom: 20px; }
+.footer-divider { border-color: #636e72; width: 50px; margin: 20px auto; }
+.footer-copy { font-size: 0.8rem; opacity: 0.5; text-align: center; }
+
+/* detail page at the post */
+.single-post { margin-bottom: 3rem; }
+.post-header { margin-bottom: 2.5rem; }
+.post-title { font-weight: 800; color: #2d3436; margin-bottom: 1.5rem; }
+.post-meta-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 5px solid #0984e3;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.post-full-img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.post-body-content {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* comments */
+.comments-section { margin-top: 4rem; }
+.comments-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+.comment-form-wrapper {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+}
+.btn-submit-comment {
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    padding: 0.6rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+.btn-submit-comment:hover { background-color: #074da1; }
+
+/* buttons for edit and delete */
+.btn-edit, .btn-delete {
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.btn-edit { color: #6c757d; border: 1px solid #ced4da; }
+.btn-edit:hover { background: #6c757d; color: white; }
+.btn-delete { color: #d63031; border: 1px solid #ff7675; margin-left: 8px; }
+.btn-delete:hover { background: #d63031; color: white; }
+.btn-back {
+    text-decoration: none;
+    color: #636e72;
+    border: 1px solid #b2bec3;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+}
