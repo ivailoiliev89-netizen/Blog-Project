@@ -1,11 +1,47 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
-<div class="container mt-4">
-    <h2>Нов пост</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success">Публикувай</button>
-    </form>
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="bg-primary p-4 text-white text-center">
+                <h2 class="fw-bold mb-0">📝 Create a Masterpiece</h2>
+                <p class="opacity-75 small">Share your thoughts with the world</p>
+            </div>
+
+            <div class="card-body p-4 p-md-5 bg-white">
+                <form method="post" enctype="multipart/form-data" class="needs-validation">
+                    {% csrf_token %}
+
+                    <div class="form-styling">
+                        {% for field in form %}
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-dark h6">{{ field.label }}</label>
+
+                                {% if field.name == 'tags' %}
+                                    <div class="bg-light p-3 rounded-4 border d-flex flex-wrap gap-3">
+                                        {{ field }}
+                                    <div>
+                                {% else %}
+                                    {{ field }}
+                                {% endif %}
+
+                                {% if field.help_text %}
+                                    <div class="form-text text-muted small">{{ field.help_text }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+                        <a href="{% url 'blog:post_list' %}" class="btn btn-light rounded-pill px-4 me-md-2">Back</a>
+                        <button type="submit" class="btn btn-primary rounded-pill px-5 fw-bold shadow">
+                            🚀 Publish Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
