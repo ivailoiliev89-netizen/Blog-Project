@@ -1,31 +1,73 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
-<div class="container mt-4">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <hr>
-    <small>
-        Автор: {{ post.author.username }} | {{ post.created_at|date:"d.m.Y H:i" }}
-    </small>
-    <br>
-    <a href="{% url 'blog:post_list' %}" class="btn btn-secondary mt-3">Назад</a>
-</div>
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <article class="single-post">
+            <header class="post-header">
+                <div class="post-category-wrapper">
+                    <span class="category-badge">{{ post.category }}</span>
+                </div>
+                <h1 class="post-title">{{ post.title }}</h1>
 
-<hr>
-<h4>Коментари ({{ comments.count }})</h4>
+                <div class="post-meta-box">
+                    <div class="author-details">
+                        <p class="author-name">{{ post.author.username }}</p>
+                        <small class="post-date">{{ post.created_at|date:"d F Y, H:i" }}</small>
+                    </div>
 
-<form method="post" action="{{ post.get_absolute_url }}" id="comment-form">
-    {% csrf_token %}
-    {{ comment_form.as_p }}
-    <input type="hidden" name="parent_id" id="parent_id">
-    <button type="submit" class="btn btn-primary">Изпрати</button>
-</form>
+                    {% if post.author == user %}
+                    <div class="post-actions">
+                        <a href="{% url 'blog:post_edit' post.slug %}" class="btn-edit">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        <a href="{% url 'blog:post_delete' post.slug %}" class="btn-delete">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
 
-<div class="mt-4">
-    {% for comment in comments %}
-        {% include 'blog/includes/comment.html' with comment=comment %}
-    {% empty %}
-        <p>Все още няма коментари — бъди първи!</p>
-    {% endfor %}
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="post-full-img" alt="{{ post.title }}">
+            {% endif %}
+
+            <div class="post-body-content">
+                {{ post.content|linebreaks }}
+            </div>
+
+            <div class="post-footer-nav">
+                <a href="{% url 'blog:post_list' %}" class="btn-back">
+                    ← Back to all articles
+                </a>
+            </div>
+        </article>
+
+        <section class="comments-section">
+            <div class="comments-container shadow-sm">
+                <h4 class="comments-count">Comments ({{ comments.count }})</h4>
+
+                <div class="comment-form-wrapper">
+                    <form method="post" action="{{ post.get_absolute_url }}" id="comment-form">
+                        {% csrf_token %}
+                        <div class="comment-inputs">
+                            {{ comment_form.as_p }}
+                        </div>
+                        <input type="hidden" name="parent_id" id="parent_id">
+                        <button type="submit" class="btn-submit-comment">Send Comment</button>
+                    </form>
+                </div>
+
+                <div class="comments-list">
+                    {% for comment in comments %}
+                        {% include 'blog/includes/comment.html' with comment=comment %}
+                    {% empty %}
+                        <p class="no-comments">No comments yet... Be the first!</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
 {% endblock %}
