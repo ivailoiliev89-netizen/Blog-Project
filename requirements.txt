@@ -1,1 +1,7 @@
-pip freeze > requirements.txt
+asgiref==3.8.1
+backports.zoneinfo==0.2.1
+django==4.2.25
+pillow==10.4.0
+sqlparse==0.5.3
+typing-extensions==4.13.2
+tzdata==2025.2
